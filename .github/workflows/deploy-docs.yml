@@ -37,4 +37,7 @@ jobs:
         run: python3 mkdocs-gen.py
 
       - name: Deploy
-        run: mkdocs gh-deploy -f mkdocs/mkdocs.yml
+        run: |
+          git fetch
+          git pull
+          mkdocs gh-deploy -f mkdocs/mkdocs.yml
