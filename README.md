@@ -13,7 +13,7 @@ Python tool for generating files for [MkDocs](https://github.com/mkdocs/mkdocs).
 ## Usage
 
 ### Run the script
-```
+```bash
 python mkdocs-gen.py --name "Your Project Name"
 ```
 This will create a new directory, named `mkdocs`, which can be used by mkdocs script.
