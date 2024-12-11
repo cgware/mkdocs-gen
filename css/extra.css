@@ -68,6 +68,10 @@ code {
     background-color: #1A1A1A !important;
 }
 
+.hljs-string {
+    color: #98C379 !important;
+}
+
 ::-webkit-scrollbar {
     width: 10px !important;
     height: 6px !important;
