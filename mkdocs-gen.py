@@ -125,7 +125,6 @@ theme: readthedocs
 extra_css:
   - css/extra.css
 nav:
-  - Home: README.md
 """
 
 
@@ -134,8 +133,8 @@ def error(msg: str):
 	exit(1)
 
 
-def gen_css(out: Path):
-	out = out / 'docs' / 'css'
+def gen_css():
+	out = Path(OUTPUT_DIR) / 'docs' / 'css'
 
 	if not out.exists():
 		os.makedirs(out)
@@ -146,22 +145,12 @@ def gen_css(out: Path):
 		file.write(CSS)
 
 
-def gen_yml(out: Path, name: str):
-	if not out.exists():
-		os.makedirs(out)
-
-	out /= 'mkdocs.yml'
-
-	yml = YML.replace('{name}', name)
-
-	with open(out, 'w') as file:
-		file.write(yml)
-
-
-def copy_file(src: Path, dest: Path):
+def add_page(nav: dict, src: Path, docs_path: str, name: str):
 
 	if not src.exists():
-		error(f'ERROR: File not found: {src}')
+		return
+
+	dest = Path(OUTPUT_DIR) / 'docs' / docs_path
 
 	if dest.exists():
 		os.remove(dest)
@@ -171,12 +160,34 @@ def copy_file(src: Path, dest: Path):
 	except Exception as e:
 		error(f'ERROR: Failed to copy: {e}')
 
+	nav[name] = docs_path
+
+
+def gen_yml(name: str, nav: dict):
+	out = Path(OUTPUT_DIR)
+
+	if not out.exists():
+		os.makedirs(out)
+
+	out /= 'mkdocs.yml'
+
+	yml = YML.replace('{name}', name)
+
+	for page in nav:
+		yml += f'  - {page}: {nav[page]}\n'
+
+	with open(out, 'w') as file:
+		file.write(yml)
+
 
 def main(args):
-	out = Path(OUTPUT_DIR)
-	gen_css(out)
-	gen_yml(out, args.name)
-	copy_file(Path('README.md'), out / 'docs' / 'README.md')
+	gen_css()
+
+	nav = {}
+	add_page(nav, Path('README.md'), 'README.md', 'Home')
+	add_page(nav, Path('LICENSE'), 'LICENSE.md', 'License')
+
+	gen_yml(args.name, nav)
 
 
 if __name__ == '__main__':

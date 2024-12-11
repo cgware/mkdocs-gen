@@ -17,3 +17,6 @@ Python tool for generating files for [MkDocs](https://github.com/mkdocs/mkdocs).
 python mkdocs-gen.py --name "Your Project Name"
 ```
 This will create a new directory, named `mkdocs`, which can be used by mkdocs script.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
