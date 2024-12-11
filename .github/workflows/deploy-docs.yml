@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate mkdocs
-        run: python3 mkdocs-gen.py
+        run: python3 mkdocs-gen.py -n ${{ github.event.repository.name }}
 
       - name: Deploy
         run: |

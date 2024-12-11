@@ -1,3 +1,4 @@
+import argparse
 import os
 import shutil
 from pathlib import Path
@@ -146,7 +147,7 @@ def copy_file(src: Path, dest: Path):
 		error(f'ERROR: File not found: {src}')
 
 	if dest.exists():
-		error(f'ERROR: Folder already exists: {dest}')
+		os.remove(dest)
 
 	try:
 		shutil.copy(src, dest)
@@ -154,12 +155,15 @@ def copy_file(src: Path, dest: Path):
 		error(f'ERROR: Failed to copy: {e}')
 
 
-def main():
+def main(args):
 	out = Path(OUTPUT_DIR)
 	gen_css(out)
-	gen_yml(out, 'test')
+	gen_yml(out, args.name)
 	copy_file(Path('README.md'), out / 'docs' / 'README.md')
 
 
 if __name__ == '__main__':
-	main()
+	parser = argparse.ArgumentParser(description='Generate mkdocs')
+	parser.add_argument('-n', '--name', type=str, help='package name', required=True)
+
+	main(parser.parse_args())
