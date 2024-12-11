@@ -19,8 +19,13 @@ CSS = """.wy-nav-top {
     padding: 12px !important;
 }
 
+.wy-nav-side {
+    padding: 0 !important;
+}
+
 .wy-nav-content {
     background-color: #131313 !important;
+    max-width: none !important;
 }
 
 .wy-nav-content-wrap {
@@ -33,14 +38,22 @@ body {
 
 .wy-side-nav-search {
     background-color: #1A1A1A !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 input {
-    background-color: #000000 !important;
+    color: #D0D0D0 !important;
+    background-color: #1A1A1A !important;
+    border-color: #333333 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 .wy-side-scroll {
     background-color: #1A1A1A !important;
+    padding: 0 !important;
 }
 
 .caption-text {
