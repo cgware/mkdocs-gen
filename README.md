@@ -19,4 +19,4 @@ python mkdocs-gen.py --name "Your Project Name"
 This will create a new directory, named `mkdocs`, which can be used by mkdocs script.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) for details.

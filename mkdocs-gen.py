@@ -24,9 +24,10 @@ def add_page(nav: dict, src: Path, docs_path: str, name: str):
 		return
 
 	dest = Path(OUTPUT_DIR) / 'docs' / docs_path
+	dir = os.path.dirname(dest)
 
-	if dest.exists():
-		os.remove(dest)
+	if not os.path.exists(dir):
+		os.makedirs(dir)
 
 	try:
 		shutil.copy(src, dest)
@@ -56,7 +57,9 @@ def gen_yml(name: str, nav: dict):
 def main(args):
 	nav = {}
 	add_page(nav, Path('README.md'), 'README.md', 'Home')
-	add_page(nav, Path('LICENSE'), 'LICENSE.md', 'License')
+	add_page(nav, Path('LICENSE.md'), 'LICENSE.md', 'License')
+
+	add_page(nav, Path('report/index.html'), 'coverage.md', 'Coverage')
 
 	gen_yml(args.name, nav)
 
