@@ -1,0 +1,199 @@
+:root {
+    --none-color: #7D8590;
+    --none-color-fg: #7D8590;
+    --low-color: #DA3633;
+    --low-color-fg: #F85149;
+    --medium-color: #9E6A03;
+    --medium-color-fg: #D29922;
+    --high-color: #238636;
+    --high-color-fg: #3FB950;
+    --uncovered-color: #F8514944;
+    --partial-covered-color: #BB800944;
+    --covered-color: #2EA04344;
+}
+
+.js-enabled .js-enabled-hidden {
+    display: none
+}
+
+.js-disabled .js-disabled-hidden {
+    display: none
+}
+
+.css-truncate .css-truncate-target,
+.css-truncate.css-truncate-target {
+    display: inline-block;
+    max-width: 125px;
+    vertical-align: top;
+}
+
+.css-truncate .css-truncate-overflow,
+.css-truncate .css-truncate-target,
+.css-truncate.css-truncate-overflow,
+.css-truncate.css-truncate-target {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.coverage-low {
+    background-color: var(--low-color);
+    color: #FFFFFF;
+}
+
+.coverage-medium {
+    background-color: var(--medium-color);
+    color: #FFFFFF;
+}
+
+.coverage-high {
+    background-color: var(--high-color);
+    color: #FFFFFF;
+}
+
+.IssueLabel {
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    white-space: nowrap;
+    border: 1px solid #000000;
+    border-radius: 2em;
+}
+
+.functionslist {
+    width: 50%;
+}
+
+.listOfFunctions tr>td>a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.listOfFunctions tr:hover>td {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--hover-color);
+}
+
+.filelist .Box-row:nth-child(2n+3) {
+    background-color: var(--foreground-color);
+}
+
+.Box {
+    border-color: var(--border-color);
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.Box-header {
+    background-color: var(--foreground-color);
+    border-color: var(--border-color);
+    border-style: solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-width: 1px;
+    margin: calc(1px * -1) calc(1px * -1) 0;
+    padding: 16px;
+}
+
+.Box-row {
+    background-color: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    list-style-type: none;
+    margin-top: calc(1px * -1);
+    padding: 16px;
+}
+
+.Label,
+.label {
+    border: 1px solid #30363D;
+    border-radius: 2em;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 0 7px;
+    white-space: nowrap;
+}
+
+.Label--minw {
+    min-width: 61px;
+    text-align: right;
+}
+
+.Label--minw>span {
+    min-width: 57px;
+    width: 57px;
+}
+
+.Label--coverage-none {
+    border-color: #7D8590;
+    color: #7D8590;
+}
+
+.Label--coverage-low {
+    border-color: var(--low-color);
+    color: var(--low-color-fg);
+}
+
+.Label--coverage-medium {
+    border-color: var(--medium-color);
+    color: var(--medium-color-fg);
+}
+
+.Label--coverage-high {
+    border-color: var(--high-color);
+    color: var(--high-color-fg);
+}
+
+.Progress--large {
+    height: 10px;
+}
+
+.Progress {
+    background-color: #6e768166;
+    border-radius: 6px;
+    display: flex;
+    height: 8px;
+    outline: 1px solid #00000000;
+    overflow: hidden;
+}
+
+.Progress-item {
+    outline: 2px solid #00000000;
+}
+
+td.linenos .normal {
+    color: #6e7681;
+    background-color: var(--background-color) !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.uncoveredLine {
+    background-color: var(--uncovered-color) !important;
+}
+
+.partialCoveredLine {
+    background-color: var(--partial-covered-color) !important;
+}
+
+.coveredLine {
+    background-color: var(--covered-color) !important;
+}
+
+.color-bg-subtle {
+    background-color: var(--foreground-color) !important;
+}
+
+.color-fg-danger {
+    color: var(--low-color-fg) !important;
+}
+
+.color-taken-branch {
+    color: var(--high-color-fg) !important;
+}
