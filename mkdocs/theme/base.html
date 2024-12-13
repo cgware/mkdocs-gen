@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  <link rel="shortcut icon" href="{{ "img/favicon.ico"|url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/ia-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  {%- for lang in config.theme.hljs_languages %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+  {%- endfor %}
+  <script>hljs.highlightAll();</script>
+  <link rel="stylesheet" href="{{ "css/primer.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+  {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet">
+  {% endfor %}
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="{{ "js/theme.js"|url }}"></script>
+  {% for script in config.extra_javascript %}
+    {{ script | script_tag }}
+  {% endfor %}
+</head>
+
+<body>
+  <nav class="nav">
+    <div role="search">
+      <form action="{{ "search.html"|url }}" method="get">
+        <input type="search" name="q" placeholder="Search" />
+      </form>
+    </div>
+
+    <ul>
+    {% for nav_item in nav %}
+      {% include "nav.html" %}
+    {% endfor %}
+    </ul>
+  </nav>
+
+  <section class="content">
+  {% block content %}
+    {{ page.content }}
+  {% endblock %}
+
+  </section>
+
+</body>
+</html>

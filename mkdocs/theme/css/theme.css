@@ -1,0 +1,243 @@
+:root {
+    --background-color: #101010;
+    --foreground-color: #1A1A1A;
+    --hover-color: #4A4A4A;
+    --border-color: #333333;
+    --text-color: #CCCCCC;
+    --link-color: #FF8C42;
+    --none-color: #7D8590;
+    --none-color-fg: #7D8590;
+    --low-color: #DA3633;
+    --low-color-fg: #F85149;
+    --medium-color: #9E6A03;
+    --medium-color-fg: #D29922;
+    --high-color: #238636;
+    --high-color-fg: #3FB950;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100%;
+}
+
+.nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    background-color: var(--foreground-color);
+}
+
+.nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
+
+.nav a:hover {
+    color: var(--link-color);
+    text-decoration: none;
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.nav .active a {
+    font-weight: bold;
+}
+
+.nav input {
+    background-color: var(--foreground-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    color: var(--text-color);
+    transition: none !important;
+    outline: none;
+    width: 100%;
+    padding: 20px;
+}
+
+.content {
+    margin-left: 300px;
+    padding: 10px 20px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+hr {
+    background-color: var(--border-color);
+    border: 0;
+    height: 1px;
+}
+
+code {
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    padding: 2px 5px;
+}
+
+.js-enabled .js-enabled-hidden {
+    display: none
+}
+
+.js-disabled .js-disabled-hidden {
+    display: none
+}
+
+.css-truncate .css-truncate-target,
+.css-truncate.css-truncate-target {
+    display: inline-block;
+    max-width: 125px;
+    vertical-align: top;
+}
+
+.css-truncate .css-truncate-overflow,
+.css-truncate .css-truncate-target,
+.css-truncate.css-truncate-overflow,
+.css-truncate.css-truncate-target {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.coverage-low {
+    background-color: var(--low-color);
+    color: #FFFFFF;
+}
+
+.coverage-medium {
+    background-color: var(--medium-color);
+    color: #FFFFFF;
+}
+
+.coverage-high {
+    background-color: var(--high-color);
+    color: #FFFFFF;
+}
+
+.IssueLabel {
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    white-space: nowrap;
+    border: 1px solid #000000;
+    border-radius: 2em;
+}
+
+.filelist .Box-row:nth-child(2n+3) {
+    background-color: var(--foreground-color);
+}
+
+.Box {
+    background-color: var(--foreground-color);
+    border-color: var(--border-color);
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.Box-header {
+    background-color: var(--foreground-color);
+    border-color: var(--border-color);
+    border-style: solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-width: 1px;
+    margin: calc(1px * -1) calc(1px * -1) 0;
+    padding: 16px;
+}
+
+.Box-row {
+    background-color: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    list-style-type: none;
+    margin-top: calc(1px * -1);
+    padding: 16px;
+}
+
+.Label,
+.label {
+    border: 1px solid #30363D;
+    border-radius: 2em;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 0 7px;
+    white-space: nowrap;
+}
+
+.Label--minw {
+    min-width: 61px;
+    text-align: right;
+}
+
+.Label--minw>span {
+    min-width: 57px;
+    width: 57px;
+}
+
+.Label--coverage-none {
+    border-color: #7D8590;
+    color: #7D8590;
+}
+
+.Label--coverage-low {
+    border-color: var(--low-color);
+    color: var(--low-color-fg);
+}
+
+.Label--coverage-medium {
+    border-color: var(--medium-color);
+    color: var(--medium-color-fg);
+}
+
+.Label--coverage-high {
+    border-color: var(--high-color);
+    color: var(--high-color-fg);
+}
+
+.Progress--large {
+    height: 10px;
+}
+
+.Progress {
+    background-color: #6e768166;
+    border-radius: 6px;
+    display: flex;
+    height: 8px;
+    outline: 1px solid #00000000;
+    overflow: hidden;
+}
+
+.Progress-item {
+    outline: 2px solid #00000000;
+}
